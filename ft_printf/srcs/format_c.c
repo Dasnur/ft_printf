@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 14:43:24 by atote             #+#    #+#             */
-/*   Updated: 2019/11/14 17:46:08 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/11/21 21:17:24 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int		ft_atoi_sharp(const char *nptr)
 {
 	long long int			res;
 	int						i;
-	
-    i = 0;
+
+	i = 0;
 	res = 0;
 	while ((nptr[i] > 8 && nptr[i] < 14) || nptr[i] == ' ' || nptr[i] == '#' ||
-    nptr[i] == '-' || nptr[i] == '+' || nptr[i] == '.')
+	nptr[i] == '-' || nptr[i] == '+' || nptr[i] == '.')
 		i++;
 	while ((nptr[i] > 47) && (nptr[i] < 58))
 	{
@@ -33,40 +33,40 @@ int		ft_atoi_sharp(const char *nptr)
 	return (res);
 }
 
-void    print_format_c(t_params *m)
+void	print_format_c(t_params *m)
 {
-    if (m->f_check_width == 0)
-        ft_putchar(m->cha);
-    else
-    {
-        if (m->f_check_minus == 1)
-        {
-            ft_putchar(m->cha);
-            while (--(m->f_check_width) > 0)
-                ft_putchar(' ');
-        }
-        else
-        {
-            while (--(m->f_check_width) > 0)
-            {
-                if (m->f_check_zero == 0)
-                    ft_putchar(' ');
-                else
-                    ft_putchar('0');
-            }
-            ft_putchar(m->cha);
-        }
-    }
+	if (m->f_check_width == 0)
+		ft_putchar(m->cha);
+	else
+	{
+		if (m->f_check_minus == 1)
+		{
+			ft_putchar(m->cha);
+			while (--(m->f_check_width) > 0)
+				ft_putchar(' ');
+		}
+		else
+		{
+			while (--(m->f_check_width) > 0)
+			{
+				if (m->f_check_zero == 0)
+					ft_putchar(' ');
+				else
+					ft_putchar('0');
+			}
+			ft_putchar(m->cha);
+		}
+	}
 }
 
-void    format_c(char *line, int i, va_list a, int flag)
+void	format_c(char *line, int i, va_list a, int flag)
 {
-    t_params m;
-    
-    take_all_params(line, i, &m);
-    if (flag == 10)
-        m.cha = '%';
-    else
-        m.cha = va_arg(a, int);
-    print_format_c(&m);
+	t_params m;
+
+	take_all_params(line, i, &m);
+	if (flag == 10)
+		m.cha = '%';
+	else
+		m.cha = va_arg(a, int);
+	print_format_c(&m);
 }

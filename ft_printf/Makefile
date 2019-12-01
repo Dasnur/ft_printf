@@ -6,7 +6,7 @@
 #    By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 17:36:24 by acarlett          #+#    #+#              #
-#    Updated: 2019/11/18 17:19:32 by atote            ###   ########.fr        #
+#    Updated: 2019/11/21 22:29:24 by acarlett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,23 +24,39 @@ DIR_H = includes
 
 LIBFT = libft
 
-FILES = format_d_ld_lld_hd_hhd.c \
+FILES = format_d_u.c \
+format_d_u_convert_toint.c \
+format_d_u_convert_tounsigned.c \
+format_d_u_first.c \
+format_d_u_second.c \
 format_c.c \
 format_str.c \
 format_o8.c \
-main.c \
-format_p.c \
 format_f.c \
+main.c \
+main_2.c \
+main_3.c \
+main_4.c \
+format_p.c \
 format_x.c \
+format_x_second.c \
 
-FILES_MAIN = srcs/format_d_ld_lld_hd_hhd.c \
+FILES_MAIN = srcs/format_d_u.c \
 srcs/format_c.c \
 srcs/format_str.c \
 srcs/format_o8.c \
-srcs/main.c \
-srcs/format_p.c \
 srcs/format_f.c \
+srcs/format_d_u_convert_toint.c \
+srcs/format_d_u_convert_tounsigned.c \
+srcs/format_d_u_first.c \
+srcs/format_d_u_second.c \
+srcs/main.c \
+srcs/main_2.c \
+srcs/main_3.c \
+srcs/main_4.c \
+srcs/format_p.c \
 srcs/format_x.c \
+srcs/format_x_second.c \
 
 SRCS = $(addprefix $(DIR_S)/,$(FILES))
 
