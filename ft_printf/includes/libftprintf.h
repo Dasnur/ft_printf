@@ -58,6 +58,8 @@ typedef struct				s_params
 	int						f_check_value_precision;
 	int						f_check_long_int;
 	int						f_check_short_int;
+	int						j;
+	char*					colour;
 }							t_params;
 
 void						to_d(char *line, int i, t_params m, va_list a);
@@ -120,13 +122,38 @@ void						print_format_o8(t_params *m);
 void						print_format_p(t_params *m);
 void						print_format_str(t_params *m);
 void						print_format_d(t_params *m, int size_number);
+void						print_with_precision(char *res, int i, t_params *m);
 void						format_x(char *line, int i, va_list a, int flag);
 void						format_str(char *line, int i, va_list a);
 void						format_c(char *line, int i, va_list a, int flag);
 void						d_u(char *line, int i, va_list a, t_params m);
 void						format_p(char *line, int i, va_list a);
 void						format_o8(char *line, int i, va_list a);
-void						format_f(char *line, int i, va_list a);
+void						format_f(char *line, int i, va_list a, int type);
+void						print_format_f(t_params *m, char *res);
+void    					w_nominus_print_f(t_params *m, char *res, int *len);
+void    					w_minus_print_f(t_params *m, char *res, int *len);
+void    					no_width_print_f(t_params *m, char *res);
+void    					vibor_mantiss(long double doubl1, t_params *m);
+char    					*manta_for_null(char *manta, char *manta1, int flag);
+void    					second_manta_for_null(char *manta1, int flag, t_params *m);
+int    						kratnie5_manta_for_null(char *manta, t_params *m);
+void    					first_manta_for_null(char *manta1, char *manta, t_params *m, int flag);
+int     					number_counting_in(int in);
+int     					poryadok(int len);
+char    					*get_left_space_for_la(char *res);
+char    					*sdvig(char *res, int k);
+char    					*long_arif(char *a, char *b, char sign);
+char    					*get_good_line_of_pre(char *res, t_params *m);
+char    					*get_allres(char **res11, t_params *m);
+char     					*bit_fourth(long double res, long long int in);
+char     					*bit_double(double res, long long int in);
+char    					*div_bit_double(t_params *m, char *result, unsigned char tmp, unsigned char *gg);
+char    					*get_only_mant(char *res, long long int in, int flag);
+char						*mant_to_byte(long long int mant);
+char    					*ft_itoa_dr(int a);
+void      					perenos_okruglenie(char *res, t_params *m, int *k);
+char    					*okruglenie(char *res, int i, t_params *m);
 void						ft_putstrrev(char *src, t_params *m, int in);
 
 #endif

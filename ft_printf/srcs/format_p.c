@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 20:17:37 by acarlett          #+#    #+#             */
-/*   Updated: 2019/11/21 22:06:07 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/04 18:40:31 by atote            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void	print_format_p(t_params *m)
 		res[1] = '\0';
 		m->i = 0;
 	}
-//	printf("%s\n", res);
 	print_format_p_second(m, res);
 }
 

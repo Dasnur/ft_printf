@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:21:46 by acarlett          #+#    #+#             */
-/*   Updated: 2019/11/21 19:25:02 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/04 18:32:03 by atote            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,15 @@ void	ft_putstrrev(char *src, t_params *m, int in)
 	while (src[i] != '\0')
 		i++;
 	i--;
- 	if ((in == -2147483648 || in == -8000) && (i == 17 || i == 15))
-	 {
-		 if (m->f_check_octotorp)
-		 {
-			 ft_putchar(src[i--]);
-			 ft_putchar(src[i--]);
-		 }
-	 	i = i / 2;
-	 }
-// 	{
-// 		i = i / 2;
-// //		printf("%s", "Hello");
-// 	}
-//	printf("%u", in);
+	if ((in == -2147483648 || in == -8000) && (i == 17 || i == 15))
+	{
+		if (m->f_check_octotorp)
+		{
+			ft_putchar(src[i--]);
+			ft_putchar(src[i--]);
+		}
+		i = i / 2;
+	}
 	while (i >= 0)
 	{
 		ft_putchar(src[i]);

@@ -6,30 +6,11 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 18:08:41 by acarlett          #+#    #+#             */
-/*   Updated: 2019/11/21 23:20:10 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/04 18:32:28 by atote            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
-
-char	*limitst(char *res)
-{
-	int	i;
-	int	k;
-	
-	i = 0;
-	k = 16;
-	while (i < 8)
-	{
-		res[i] = res[k];
-		printf("%c\n", res[i]);
-		i++;
-		k--;
-	}
-	res[i] = '\0';
-	//printf("%s\n", res);
-	return (res);
-}
 
 void	print_format_ox(t_params *m, char *line, int flag)
 {
@@ -52,7 +33,6 @@ void	print_format_ox(t_params *m, char *line, int flag)
 		in /= 16;
 	}
 	m->res[m->i] = '\0';
-	//printf("%s\n", m->res);
 	ox_s(m, flag, resx, in);
 }
 

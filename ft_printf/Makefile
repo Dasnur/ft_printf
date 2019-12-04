@@ -33,6 +33,11 @@ format_c.c \
 format_str.c \
 format_o8.c \
 format_f.c \
+format_f_printing.c \
+format_f_sup_printing.c \
+format_f_sup_printing2.c \
+format_f_mantiss.c \
+format_f_sup_mant.c \
 main.c \
 main_2.c \
 main_3.c \
@@ -46,6 +51,11 @@ srcs/format_c.c \
 srcs/format_str.c \
 srcs/format_o8.c \
 srcs/format_f.c \
+srcs/format_f_printing.c \
+srcs/format_f_sup_printing.c \
+srcs/format_f_sup_printing2.c \
+srcs/format_f_mantiss.c \
+srcs/format_f_sup_mant.c \
 srcs/format_d_u_convert_toint.c \
 srcs/format_d_u_convert_tounsigned.c \
 srcs/format_d_u_first.c \

@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 20:17:30 by acarlett          #+#    #+#             */
-/*   Updated: 2019/11/21 23:19:38 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/04 18:31:14 by atote            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int		ft_choose_flags(char *line, int i)
 		return (9);
 	if (line[i] == '%')
 		return (10);
+	if (line[i] == 'g')
+		return (11);
 	return (-1);
 }
 
@@ -84,8 +86,8 @@ int		ft_crossroads(int i, va_list a, char *line)
 		format_o8(line, i, a);
 	if (m.type == 7 || m.type == 8)
 		format_x(line, i, a, m.type);
-	if (m.type == 9)
-		format_f(line, i, a);
+	if (m.type == 9 || m.type == 11)
+		format_f(line, i, a, m.type);
 	if (m.type == 10)
 		format_c(line, i, a, m.type);
 	return (0);
@@ -105,7 +107,7 @@ void	ft_printf(char *line, ...)
 			ft_crossroads(i + 1, a, line);
 			i = count_flags(line, i + 1);
 			if (line[i] == '\0')
-				break;
+				break ;
 			i++;
 			continue ;
 		}
@@ -121,9 +123,12 @@ void	ft_printf(char *line, ...)
 	va_end(a);
 }
 
-// int main()
+// int	main()
 // {
-// 	char a;
-// 	printf("%p\n", &a);
-// 	ft_printf("%p", &a);
+// 	ft_printf ("%s{red}\n", "danya loh");
+// 	ft_printf ("%s{green}\n", "danya loh");
+// 	ft_printf ("%s{yellow}\n", "danya loh");
+// 	ft_printf ("%s{blue}\n", "danya loh");
+// 	ft_printf ("%s{magenta}\n", "danya loh");
+// 	ft_printf ("%s{cyan}\n", "danya loh");
 // }

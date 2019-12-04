@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 22:14:33 by acarlett          #+#    #+#             */
-/*   Updated: 2019/11/21 22:31:29 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/04 18:30:16 by atote            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,21 @@ int		count_flags(char *line, int i)
 {
 	while (ft_check_all_flags(line, i))
 		i++;
+	if (line[i + 1] == '{')
+	{
+		while (line[i] != '}')
+			i++;
+	}
 	return (i);
 }
 
-int     ft_check_long_f(char *line, int i)
+int		ft_check_long_f(char *line, int i)
 {
-    while(line[i] != 'f')
-    {
-        if (line[i] == 'L' && (line[i + 1] == 'f'))
-            return (1);
-        i++;
-    } 
-    return (0); 
+	while (line[i] != 'f')
+	{
+		if (line[i] == 'L' && (line[i + 1] == 'f'))
+			return (1);
+		i++;
+	}
+	return (0);
 }
