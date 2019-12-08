@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 21:36:19 by acarlett          #+#    #+#             */
-/*   Updated: 2019/11/21 23:21:37 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/08 19:26:16 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 # define IS_HUNDRED(x) (x < 100 ? 0 : 1)
 # define WHILE_NOT_ZERO(x) (x > 0 ? x - 1 : 0)
 # define ISNULL(x) (x == 0 ? 0 : 1)
-# include <stdio.h>
-# include <stdarg.h>
-# include <stdlib.h>
+# include <libc.h>
 # include "../libft/libft.h"
 
 typedef struct				s_params
@@ -61,9 +59,18 @@ typedef struct				s_params
 	int						f_check_long_int;
 	int						f_check_short_int;
 	int						j;
+	int						f;
 	char*					colour;
 }							t_params;
 
+void						between_p(char *line, int i, va_list a, t_params *m);
+void						between_s(char *line, int i, va_list a, t_params *m);
+void						between_d(t_params *m, char *line, int i, va_list a);
+void						between_c(t_params *m, int flag, va_list a);
+void						between(char *line, int i, t_params *m, va_list a);
+void						take_width_2(char *line, int i, t_params *m, va_list a);
+void						take_all_params_2(char *line, int i, t_params *m, va_list a);
+void						recognize_colour(char *res, t_params *m);
 void						to_d(char *line, int i, t_params m, va_list a);
 void						ox_s(t_params *m, int flag, char *resx, int in);
 void						choose_unsigned(t_params *m, int number);
@@ -142,7 +149,7 @@ void    					second_manta_for_null(char *manta1, int flag, t_params *m);
 int    						kratnie5_manta_for_null(char *manta, t_params *m);
 void    					first_manta_for_null(char *manta1, char *manta, t_params *m, int flag);
 int     					number_counting_in(int in);
-long long int     			poryadok(int len);
+int     					poryadok(int len);
 char    					*get_left_space_for_la(char *res);
 char    					*sdvig(char *res, int k);
 char    					*long_arif(char *a, char *b, char sign);
@@ -157,5 +164,17 @@ char    					*ft_itoa_dr(int a);
 void      					perenos_okruglenie(char *res, t_params *m, int *k);
 char    					*okruglenie(char *res, int i, t_params *m);
 void						ft_putstrrev(char *src, t_params *m, int in);
+void						get_colour_line(char *rescolour, char *begin, char *end, char *mid);
+void		    			to_binary(t_params *m, va_list a);
+char						*check_colour(char *line, int i);
+void						recognize_colour(char *res, t_params *m);
+void						get_colour_line(char *rescolour, char *begin, char *end, char *mid);
+void						goodline_e(t_params *m, char *resnew, int *len);
+void						print_with_precision_e(char *res, int ff, int type);
+int							check_len_f(t_params *m);
+void						init_16_mas(char *hex);
+void						const_p(t_params *m, char *res);
+void						ft_putstrrev_o8(char *src);
+
 
 #endif

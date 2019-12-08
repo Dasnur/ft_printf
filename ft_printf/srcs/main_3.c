@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 22:06:45 by acarlett          #+#    #+#             */
-/*   Updated: 2019/11/21 22:31:22 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/08 19:25:14 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int		ft_check_space(char *line, int i)
 {
 	while (line[i] != 'd' && line[i] != 'i' && line[i] != 'f' &&
-			line[i] != 'u' && line[i] != 'g' && line[i] != 'e')
+			line[i] != 'u' && line[i] != 'D' && line[i] != 's' &&
+			line[i] != 'e' && line[i] != 'E' && line[i] != 'F')
 	{
 		if (line[i] == ' ')
 			return (1);

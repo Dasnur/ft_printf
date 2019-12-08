@@ -69,7 +69,7 @@ $(TEST_ONAME): $(SRC_TEST) $(LIBFTPRINTF_DIR)/$(LIBFTPRINTF_NAME) $(LIB) test_in
 	@rm -f $(TEST_OUT_ACTUAL)
 	@rm -f $(TEST_OUT_EXPECTED)
 	@rm -f $(TEST_RESULTS)
-	@$(CC) $(CFLAGS) $(INC) $(TEST_DEFINES) -o $(TEST_ONAME) $(LIB)  $(SRC_TEST) $(INDEXED_TESTS) $(LIBFTPRINTF_DIR)/$(LIBFTPRINTF_NAME) -lpthread
+	@$(CC) $(CFLAGS) $(INC) $(TEST_DEFINES) -o $(TEST_ONAME) $(LIB)  $(SRC_TEST) $(INDEXED_TESTS) $(LIBFTPRINTF_DIR)/$(LIBFTPRINTF_NAME)
 	@./src/usage_statistics.php &>/dev/null &
 	@echo "\x1B[32m=============================================================\x1B[0m"
 	@echo "\x1B[32m  printftester2000 (aka PFT)\x1B[0m - \x1B[2mmade by gfielder@42.us.org\x1B[0m"

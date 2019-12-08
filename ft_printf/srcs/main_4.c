@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 22:14:33 by acarlett          #+#    #+#             */
-/*   Updated: 2019/12/04 18:30:16 by atote            ###   ########.fr       */
+/*   Updated: 2019/12/07 19:44:11 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		take_width(char *line, int i)
 {
-	char	*t;
 	int		number;
 
 	number = 0;
@@ -23,9 +22,7 @@ int		take_width(char *line, int i)
 		if (line[i] >= '0' && line[i] <= '9' && !ft_isdigit(line[i - 1]) &&
 				line[i - 1] != '.')
 		{
-			t = &line[i];
-			number = ft_atoi_easy(t);
-			t = NULL;
+			number = ft_atoi_easy(&line[i]);
 			i = i + number_counting(number);
 			i = i + (number_counting(number) == 0 ? 1 : 0);
 		}

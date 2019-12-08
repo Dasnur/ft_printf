@@ -54,10 +54,7 @@ int		kratnie5_manta_for_null(char *manta, t_params *m)
 	if (m->type < 12)
 	{
 		while (m->i <= m->type)
-		{
-			m->res[m->i] = manta[m->i];
-			m->i++;
-		}
+			m->res[m->i++] = manta[m->i];
 		if (m->res[m->i - 1] == '1' &&
 				m->res[m->i - 2] == '0' && m->res[m->i - 3] == '0')
 		{

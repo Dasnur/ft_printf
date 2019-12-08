@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 21:07:09 by acarlett          #+#    #+#             */
-/*   Updated: 2019/11/21 23:10:43 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/08 18:54:42 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ int		ft_check_all_flags(char *line, int i)
 {
 	if (line[i] != 'c' && line[i] != 's' && line[i] != 'p' && line[i] != 'd' &&
 		line[i] != 'i' && line[i] != 'o' && line[i] != 'u' && line[i] != 'x' &&
-		line[i] != 'X' && line[i] != 'f' && line[i] != '%' && line[i] != '\0' && 
-		line[i] != 'g' && line[i] != 'e')
+		line[i] != 'X' && line[i] != 'f' && line[i] != '%' && line[i] != '\0' &&
+		line[i] != 'g' && line[i] != 'D' && line[i] != 'F' && line[i] != 'b' &&
+		line[i] != 'e' && line[i] != 'E')
 		return (1);
 	return (0);
 }

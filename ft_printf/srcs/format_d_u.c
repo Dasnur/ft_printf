@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 17:42:02 by acarlett          #+#    #+#             */
-/*   Updated: 2019/11/21 23:21:03 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/07 20:35:29 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,25 +77,5 @@ void	print_format_d(t_params *m, int size_number)
 
 void	d_u(char *line, int i, va_list a, t_params m)
 {
-	take_all_params(line, i, &m);
-	if (!m.f_check_long_int && !m.f_check_short_int && m.type == 4)
-		to_d(line, i, m, a);
-	else if (m.f_check_long_int == 1 && m.type == 4)
-		to_ld(line, i, m, a);
-	else if (m.f_check_long_int == 2 && m.type == 4)
-		to_lld(line, i, m, a);
-	else if (m.f_check_short_int == 1 && m.type == 4)
-		to_hd(line, i, m, a);
-	else if (m.f_check_short_int == 2 && m.type == 4)
-		to_hhd(line, i, m, a);
-	else if (m.type == 6 && !m.f_check_long_int && !m.f_check_short_int)
-		to_u(line, i, m, a);
-	else if (m.f_check_long_int == 1 && m.type == 6)
-		to_lu(line, i, m, a);
-	else if (m.f_check_long_int == 2 && m.type == 6)
-		to_llu(line, i, m, a);
-	else if (m.f_check_short_int == 1 && m.type == 6)
-		to_hu(line, i, m, a);
-	else if (m.f_check_short_int == 2 && m.type == 6)
-		to_hhu(line, i, m, a);
+	take_all_params_2(line, i, &m, a);
 }

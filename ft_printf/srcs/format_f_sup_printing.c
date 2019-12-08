@@ -12,7 +12,7 @@
 
 #include "../includes/libftprintf.h"
 
-int			number_counting_in(int in)
+int		number_counting_in(int in)
 {
 	int	i;
 
@@ -27,9 +27,9 @@ int			number_counting_in(int in)
 	return (i);
 }
 
-long long int	poryadok(int len)
+int		poryadok(int len)
 {
-	long long int	res;
+	int	res;
 
 	res = 1;
 	while (len > 1)

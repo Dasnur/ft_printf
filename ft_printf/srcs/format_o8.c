@@ -6,26 +6,11 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:21:46 by acarlett          #+#    #+#             */
-/*   Updated: 2019/12/04 18:32:03 by atote            ###   ########.fr       */
+/*   Updated: 2019/12/08 19:18:40 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
-
-void	ft_putstrrev_o8(char *src)
-{
-	int i;
-
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	i--;
-	while (i >= 0)
-	{
-		ft_putchar(src[i]);
-		i--;
-	}
-}
 
 void	ft_putstrrev(char *src, t_params *m, int in)
 {

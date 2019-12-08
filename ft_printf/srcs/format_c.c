@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 14:43:24 by atote             #+#    #+#             */
-/*   Updated: 2019/11/21 21:17:24 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/07 22:38:46 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,5 @@ void	format_c(char *line, int i, va_list a, int flag)
 {
 	t_params m;
 
-	take_all_params(line, i, &m);
-	if (flag == 10)
-		m.cha = '%';
-	else
-		m.cha = va_arg(a, int);
-	print_format_c(&m);
+	take_all_params_2(line, i, &m, a);
 }

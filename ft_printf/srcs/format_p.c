@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 20:17:37 by acarlett          #+#    #+#             */
-/*   Updated: 2019/12/04 18:40:31 by atote            ###   ########.fr       */
+/*   Updated: 2019/12/07 20:35:06 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,10 @@ void	print_format_p_second(t_params *m, char *res)
 
 void	print_format_p(t_params *m)
 {
-	char	hex[16] = "0123456789abcdef";
+	char	hex[16];
 	char	res[sizeof(m->p) + 3];
 
+	init_16_mas(&(hex[0]));
 	m->p = (long long int)m->poin;
 	m->i = 0;
 	while (m->i <= (sizeof(m->p) + 3))
@@ -71,8 +72,7 @@ void	print_format_p(t_params *m)
 		m->p = m->p / 16;
 		m->i++;
 	}
-	res[m->i] = '\0';
-	m->i--;
+	res[m->i--] = '\0';
 	if (res[m->i] == '0')
 	{
 		res[m->i - 2] = '\0';
@@ -83,6 +83,7 @@ void	print_format_p(t_params *m)
 		res[1] = '\0';
 		m->i = 0;
 	}
+	const_p(m, &res[0]);
 	print_format_p_second(m, res);
 }
 
@@ -90,7 +91,5 @@ void	format_p(char *line, int i, va_list a)
 {
 	t_params	m;
 
-	take_all_params(line, i, &m);
-	m.poin = va_arg(a, void *);
-	print_format_p(&m);
+	take_all_params_2(line, i, &m, a);
 }

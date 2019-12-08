@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 20:17:30 by acarlett          #+#    #+#             */
-/*   Updated: 2019/12/04 18:31:14 by atote            ###   ########.fr       */
+/*   Updated: 2019/12/08 19:30:03 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,17 @@ int		ft_check_long_int(char *line, int i)
 	return (0);
 }
 
-int		ft_check_minus(char *line, int i)
+int		ft_choose_flags_help(char *line, int i)
 {
-	while (ft_check_all_flags(line, i))
-	{
-		if (line[i] == '-')
-			return (1);
-		i++;
-	}
-	return (0);
+	if (line[i] == 'g')
+		return (92);
+	if (line[i] == 'e')
+		return (91);
+	if (line[i] == 'E')
+		return (911);
+	if (line[i] == 'b')
+		return (12);
+	return (-1);
 }
 
 int		ft_choose_flags(char *line, int i)
@@ -54,21 +56,17 @@ int		ft_choose_flags(char *line, int i)
 		return (4);
 	if (line[i] == 'o')
 		return (5);
-	if (line[i] == 'u')
+	if (line[i] == 'u' || line[i] == 'D')
 		return (6);
 	if (line[i] == 'x')
 		return (7);
 	if (line[i] == 'X')
 		return (8);
-	if (line[i] == 'f')
+	if (line[i] == 'f' || line[i] == 'F')
 		return (9);
 	if (line[i] == '%')
 		return (10);
-	if (line[i] == 'g')
-		return (92);
-	if (line[i] == 'e')
-		return (91);
-	return (-1);
+	return (ft_choose_flags_help(line, i));
 }
 
 int		ft_crossroads(int i, va_list a, char *line)
@@ -88,10 +86,12 @@ int		ft_crossroads(int i, va_list a, char *line)
 		format_o8(line, i, a);
 	if (m.type == 7 || m.type == 8)
 		format_x(line, i, a, m.type);
-	if (m.type == 9 || m.type == 91 || m.type == 92)
+	if (m.type == 9 || m.type == 91 || m.type == 911 || m.type == 92)
 		format_f(line, i, a, m.type);
 	if (m.type == 10)
 		format_c(line, i, a, m.type);
+	if (m.type == 12)
+		to_binary(&m, a);
 	return (0);
 }
 
@@ -113,11 +113,8 @@ void	ft_printf(char *line, ...)
 			i++;
 			continue ;
 		}
-		else if (line[i] == '%' && line[i + 1] == '%')
-		{
-			i++;
+		else if (line[i] == '%' && line[i + 1] == '%' && (i++))
 			ft_putchar('%');
-		}
 		else if (line[i] != '%')
 			ft_putchar(line[i]);
 		i++;
@@ -125,7 +122,7 @@ void	ft_printf(char *line, ...)
 	va_end(a);
 }
 
-// int	main()
-// {
-// 	ft_printf("%e", (double)-8000);
-// }
+int main()
+{
+	ft_printf("%f", 1.234);
+}

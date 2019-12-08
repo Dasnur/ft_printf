@@ -22,17 +22,18 @@ void	print_with_precision(char *res, int i, t_params *m)
 		ft_putchar('.');
 		m->f_check_width = m->f_check_width - 1;
 	}
-	while (--i >= -1 && (m->type == 9 || m->type == 91))
+	while (--i >= -1 && (m->type == 9 || m->type == 91 || m->type == 911))
 	{
 		if (k > 82)
 			ft_putchar('0');
 		else
 			ft_putchar(res[k++]);
 	}
-	if (m->type == 91)
+	print_with_precision_e(res, m->ff, m->type);
+	while (--i >= -1 && m->type == 92)
 	{
-		ft_putstr("e+0");
-		ft_putnbr(m->ff);
+		if (res[k] != '0')
+			ft_putchar(res[k++]);
 	}
 }
 
@@ -101,12 +102,7 @@ void	print_format_f(t_params *m, char *res)
 {
 	int	len;
 
-	len = m->f_check_value_precision + 1 +
-		number_counting_in(m->long_long_in) + m->f_check_plus;
-	if (m->long_long_in < 0 && !m->f_check_plus)
-		len++;
-	if (m->long_long_in == 0 && 1 / m->doubl > 0)
-		len++;
+	len = check_len_f(m);
 	if (m->f_check_width)
 	{
 		if (m->f_check_minus)
