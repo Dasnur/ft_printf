@@ -22,12 +22,17 @@ void	print_with_precision(char *res, int i, t_params *m)
 		ft_putchar('.');
 		m->f_check_width = m->f_check_width - 1;
 	}
-	while (--i >= -1 && m->type == 9)
+	while (--i >= -1 && (m->type == 9 || m->type == 91))
 	{
 		if (k > 82)
 			ft_putchar('0');
 		else
 			ft_putchar(res[k++]);
+	}
+	if (m->type == 91)
+	{
+		ft_putstr("e+0");
+		ft_putnbr(m->ff);
 	}
 }
 

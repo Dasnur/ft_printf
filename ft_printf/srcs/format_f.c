@@ -61,8 +61,9 @@ void	format_f(char *line, int i, va_list a, int type)
 	flag = 1;
 	y = 0;
     m.type = type;
+//	printf("%d", m.type);
 	take_all_params(line, i, &m);
-	if (m.f_check_value_precision == 0 && type == 9)
+	if (m.f_check_value_precision == 0 && (type == 9 || type == 91))
 		m.f_check_value_precision = 6;
 	if (!ft_check_long_f(line, i))
 		m.doubl = va_arg(a, double);

@@ -44,7 +44,8 @@ int		ft_check_all_flags(char *line, int i)
 {
 	if (line[i] != 'c' && line[i] != 's' && line[i] != 'p' && line[i] != 'd' &&
 		line[i] != 'i' && line[i] != 'o' && line[i] != 'u' && line[i] != 'x' &&
-		line[i] != 'X' && line[i] != 'f' && line[i] != '%' && line[i] != '\0' && line[i] != 'g')
+		line[i] != 'X' && line[i] != 'f' && line[i] != '%' && line[i] != '\0' && 
+		line[i] != 'g' && line[i] != 'e')
 		return (1);
 	return (0);
 }

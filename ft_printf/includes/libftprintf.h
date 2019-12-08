@@ -18,7 +18,9 @@
 # define IS_HUNDRED(x) (x < 100 ? 0 : 1)
 # define WHILE_NOT_ZERO(x) (x > 0 ? x - 1 : 0)
 # define ISNULL(x) (x == 0 ? 0 : 1)
-# include <libc.h>
+# include <stdio.h>
+# include <stdarg.h>
+# include <stdlib.h>
 # include "../libft/libft.h"
 
 typedef struct				s_params
@@ -140,7 +142,7 @@ void    					second_manta_for_null(char *manta1, int flag, t_params *m);
 int    						kratnie5_manta_for_null(char *manta, t_params *m);
 void    					first_manta_for_null(char *manta1, char *manta, t_params *m, int flag);
 int     					number_counting_in(int in);
-int     					poryadok(int len);
+long long int     			poryadok(int len);
 char    					*get_left_space_for_la(char *res);
 char    					*sdvig(char *res, int k);
 char    					*long_arif(char *a, char *b, char sign);

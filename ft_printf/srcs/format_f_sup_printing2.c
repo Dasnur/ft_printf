@@ -100,16 +100,28 @@ char	*get_good_line_of_pre(char *res, t_params *m)
 	int		len;
 	int		i;
 
-	i = 0;
 	len = 0;
+	m->ff = 0;
 	resnew = (char *)malloc(sizeof(char) * 144);
 	resnew[145] = '\0';
-	if (m->type == 9)
+	if (m->type == 9 || m->type == 91)
 	{
 		resnew[len] = '.';
 		len++;
 	}
-	else
+	i = number_counting(ALWAYS_POZITIVE(m->long_long_in));
+	if (m->type == 91)
+	{
+		len = i;
+		while (ALWAYS_POZITIVE(m->long_long_in) >= 10)
+		{
+			resnew[--i] = m->long_long_in % 10 + 48;
+		//	printf("-%d\n", i);
+			m->long_long_in = m->long_long_in / 10;
+			m->ff++;
+		}
+	}
+	if (m->type == 92)
 		m->f_check_width = m->f_check_width - 1;
 	i = 128;
 	while (len < 145)
@@ -120,6 +132,7 @@ char	*get_good_line_of_pre(char *res, t_params *m)
 		len++;
 		i++;
 	}
+//	printf("\n%d\n", m->f_check_value_precision);
 	return (resnew);
 }
 

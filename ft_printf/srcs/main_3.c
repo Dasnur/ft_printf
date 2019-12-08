@@ -15,7 +15,7 @@
 int		ft_check_space(char *line, int i)
 {
 	while (line[i] != 'd' && line[i] != 'i' && line[i] != 'f' &&
-			line[i] != 'u')
+			line[i] != 'u' && line[i] != 'g' && line[i] != 'e')
 	{
 		if (line[i] == ' ')
 			return (1);

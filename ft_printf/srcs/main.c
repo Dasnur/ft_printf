@@ -65,7 +65,9 @@ int		ft_choose_flags(char *line, int i)
 	if (line[i] == '%')
 		return (10);
 	if (line[i] == 'g')
-		return (11);
+		return (92);
+	if (line[i] == 'e')
+		return (91);
 	return (-1);
 }
 
@@ -86,7 +88,7 @@ int		ft_crossroads(int i, va_list a, char *line)
 		format_o8(line, i, a);
 	if (m.type == 7 || m.type == 8)
 		format_x(line, i, a, m.type);
-	if (m.type == 9 || m.type == 11)
+	if (m.type == 9 || m.type == 91 || m.type == 92)
 		format_f(line, i, a, m.type);
 	if (m.type == 10)
 		format_c(line, i, a, m.type);
@@ -125,10 +127,5 @@ void	ft_printf(char *line, ...)
 
 // int	main()
 // {
-// 	ft_printf ("%s{red}\n", "danya loh");
-// 	ft_printf ("%s{green}\n", "danya loh");
-// 	ft_printf ("%s{yellow}\n", "danya loh");
-// 	ft_printf ("%s{blue}\n", "danya loh");
-// 	ft_printf ("%s{magenta}\n", "danya loh");
-// 	ft_printf ("%s{cyan}\n", "danya loh");
+// 	ft_printf("%e", (double)-8000);
 // }
