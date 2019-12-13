@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:21:46 by acarlett          #+#    #+#             */
-/*   Updated: 2019/12/08 19:18:40 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/13 15:39:11 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	format_o8_third(t_params *m, int in)
 	}
 	else
 		ft_putstrrev_o8(m->res);
+	free(m->res);
 }
 
 void	format_o8_second(t_params *m, int in)

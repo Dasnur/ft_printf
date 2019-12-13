@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 22:39:38 by acarlett          #+#    #+#             */
-/*   Updated: 2019/12/08 18:46:46 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/13 19:49:18 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void	take_all_params_2(char *line, int i, t_params *m, va_list a)
 	m->f_check_long_int = ft_check_long_int(line, i);
 	m->f_check_short_int = ft_check_short_int(line, i);
 	m->f_check_point = ft_check_point(line, i);
-	m->f_check_value_precision = take_presicion(line, i);
 	m->ff = 0;
 	take_width_2(line, i, m, a);
 }

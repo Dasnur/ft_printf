@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 22:28:55 by acarlett          #+#    #+#             */
-/*   Updated: 2019/11/21 23:20:15 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/13 16:03:31 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	format_ox_fourth(t_params *m, int flag, char *resx, int in)
 	}
 	else
 		ft_putstrrev(m->res, m, m->unsigned_long_in);
+	free(m->res);
 }
 
 void	format_ox_third(t_params *m, int flag, char *resx, int in)

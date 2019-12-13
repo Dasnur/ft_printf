@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 20:17:30 by acarlett          #+#    #+#             */
-/*   Updated: 2019/12/08 19:30:03 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/13 20:28:23 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,14 +122,35 @@ void	ft_printf(char *line, ...)
 	va_end(a);
 }
 
-// int main()
-// {
-//     ft_printf("%5.3f\n", 1111117.3);
-//     printf("%5.3f\n", 1111117.3);
-// 	ft_printf("%.17f",  0.999999999999999990);
-// 	printf("%.17f",  0.999999999999999990);
-// 	ft_printf("%5.31f\n", 0.25);
-// 	printf("%5.31f\n", 0.25);
-// 	ft_printf("%.17f", 0.000000000000000010);
-// 	printf("%.17f", 0.000000000000000010);
-// }
+int main()
+{
+	static unsigned short		ush_pos_1 = 3047;
+	static unsigned int		ui_pos_1 = 878023;
+	static unsigned long		ul_pos_1 = 22337203685477;
+	static unsigned long long	ull_pos_1 = 22337203685477;
+	static long long	ll_pos_1 = 22337203685477, ll_neg_1 = -22337203685477;
+	static short		sh_pos_1 = 3047, sh_neg_1 = -8875;
+	static long		l_pos_1 = 22337203685477, l_neg_1 = -22337203685477;
+	ft_printf("%s{green}\n------------------\n", "TEST_MIX_0001");
+	ft_printf("%s%hihello%-17.14llu%lli%08hu%s%17ssomestuff%s%hi%i%.24lu%llu%u%.2s%li\n","abc",sh_neg_1,
+		ull_pos_1,ll_neg_1,ush_pos_1,"wassup","nope","",(short)32767,0,ul_pos_1,0ull,ui_pos_1,"notall",l_pos_1);
+	printf("%s%hihello%-17.14llu%lli%08hu%s%17ssomestuff%s%hi%i%.24lu%llu%u%.2s%li\n","abc",sh_neg_1,
+		ull_pos_1,ll_neg_1,ush_pos_1,"wassup","nope","",(short)32767,0,ul_pos_1,0ull,ui_pos_1,"notall",l_pos_1);
+	ft_printf("\n%s{green}\n------------------\n", "TEST WITH COLOUR");
+	ft_printf("%s{red}\n", "Hello");
+	ft_printf("%s{cyan}\n", "Hello");
+	ft_printf("%s{green}\n", "Hello");
+	ft_printf("%s{yellow}\n", "Hello");
+	ft_printf("%s{blue}\n", "Hello");
+	ft_printf("%s{magenta}\n", "Hello");
+	ft_printf("\n%s{green}\n------------------\n", "TEST WITH *");
+	ft_printf("%*.*s\n", 9, 3, "Hello");
+	ft_printf("\n%s{green}\n------------------\n", "TEST WITH e/E");
+	ft_printf("%.e\n", 1123451324.12);
+	ft_printf("%.e\n", 91.2345132412);
+	ft_printf("%.E\n", 91.2345132412);
+	ft_printf("\n%s{green}\n------------------\n", "TEST WITH D");
+	ft_printf("%D\n", 7234);
+	ft_printf("\n%s{green}\n------------------\n", "TEST WITH nan");
+	ft_printf("%f\n", 0.0);
+}

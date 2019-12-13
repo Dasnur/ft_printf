@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 17:14:59 by acarlett          #+#    #+#             */
-/*   Updated: 2019/12/07 20:30:13 by acarlett         ###   ########.fr       */
+/*   Updated: 2019/12/13 20:25:37 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putstr_with_colour(char *res, t_params *m)
 
 	if (m->f_check_space && !m->f_check_minus && !m->f_check_plus)
 		ft_putchar(' ');
-	rescolour = (char *)malloc(sizeof(char) * 15);
+	rescolour = (char *)malloc(sizeof(char) * 25);
 	if (m->ff == 1)
 		get_colour_line(rescolour, "\e[0;31m", "\e[0m", res);
 	if (m->ff == 2)
@@ -66,9 +66,9 @@ void	print_format_str(t_params *m)
 	char	*res;
 	int		diff;
 
-	if (m->f_check_value_precision > 0)
-		m->cha2 = ft_strsub(m->cha2, 0, m->f_check_value_precision);
-	if (m->f_check_value_precision == -1)
+	if (m->f_check_presicion > 0)
+		m->cha2 = ft_strsub(m->cha2, 0, m->f_check_presicion);
+	if (m->f_check_presicion == -1)
 		m->cha2 = "\0";
 	if (m->f_check_width == 0)
 		m->f_check_width = ft_strlen(m->cha2);
