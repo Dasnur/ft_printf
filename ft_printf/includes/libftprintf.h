@@ -18,7 +18,9 @@
 # define IS_HUNDRED(x) (x < 100 ? 0 : 1)
 # define WHILE_NOT_ZERO(x) (x > 0 ? x - 1 : 0)
 # define ISNULL(x) (x == 0 ? 0 : 1)
-# include <libc.h>
+# include <stdlib.h>
+# include <stdarg.h>
+# include <stdio.h>
 # include "../libft/libft.h"
 
 typedef struct				s_params
@@ -159,7 +161,7 @@ char     					*bit_fourth(long double res, long long int in);
 char     					*bit_double(double res, long long int in);
 char    					*div_bit_double(t_params *m, char *result, unsigned char tmp, unsigned char *gg);
 char    					*get_only_mant(char *res, long long int in, int flag);
-char						*mant_to_byte(long long int mant);
+int							mant_to_byte(long long int mant);
 char    					*ft_itoa_dr(int a);
 void      					perenos_okruglenie(char *res, t_params *m, int *k);
 char    					*okruglenie(char *res, int i, t_params *m);

@@ -122,7 +122,14 @@ void	ft_printf(char *line, ...)
 	va_end(a);
 }
 
-int main()
-{
-	ft_printf("%f", 1.234);
-}
+// int main()
+// {
+//     ft_printf("%5.3f\n", 7.3);
+//     printf("%5.3f\n", 7.3);
+// 	ft_printf("%.17f",  0.999999999999999990);
+// 	printf("%.17f",  0.999999999999999990);
+// 	ft_printf("%5.31f\n", 0.25);
+// 	printf("%5.31f\n", 0.25);
+// 	ft_printf("%5.31f\n", 0.0000000000000010);
+// 	printf("%5.31f\n", 0.0000000000000010);
+// }

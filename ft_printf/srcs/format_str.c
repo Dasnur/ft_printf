@@ -33,6 +33,7 @@ void	ft_putstr_with_colour(char *res, t_params *m)
 		get_colour_line(rescolour, "\e[0;36m", "\e[0m", res);
 	if (m->ff == 0)
 		ft_putstr(res);
+	free(rescolour);
 }
 
 void	print_first_part(t_params *m, int diff)
@@ -89,4 +90,5 @@ void	format_str(char *line, int i, va_list a)
 		m.i++;
 	m.colour = check_colour(line, ++m.i);
 	take_all_params_2(line, i, &m, a);
+	free(m.colour);
 }

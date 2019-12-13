@@ -1,0 +1,31 @@
+Test 1507 (f_stress_prec16_limits_big) : FAILED.
+    First line of code: {return test("%.16f",  0.999999999999999900);}
+    Timed out
+
+Test 1508 (f_stress_prec17_rndu) : FAILED.
+    First line of code: {return test("%.17f",        1.025978542436587568);}
+      expected output : "1.02597854243658748"
+      your output     : "1.02597854243658748"
+      expected (nonprintable as hex) : "1.02597854243658748"
+      actual   (nonprintable as hex) : "1.02597854243658748"
+
+Test 1509 (f_stress_prec17_rndd) : FAILED.
+    First line of code: {return test("%.17f",        1.025978548534310421);}
+    Timed out
+
+Test 1510 (f_stress_prec17_limits_tiny) : FAILED.
+    First line of code: {return test("%.17f", 0.000000000000000010);}
+    Timed out
+
+Test 1511 (f_stress_prec17_limits_big) : FAILED.
+    First line of code: {return test("%.17f",  0.999999999999999990);}
+    Timed out
+
+Test 1512 (f_stress_prec18_rndu) : FAILED.
+    First line of code: {return test("%.18f",        0.125978542436587568);}
+    Timed out
+
+Test 1513 (f_stress_prec18_rndd) : FAILED.
+    First line of code: {return test("%.18f",        0.125978548534310421);}
+    Timed out
+

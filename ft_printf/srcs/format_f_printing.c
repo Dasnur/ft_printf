@@ -35,6 +35,7 @@ void	print_with_precision(char *res, int i, t_params *m)
 		if (res[k] != '0')
 			ft_putchar(res[k++]);
 	}
+	free(res);
 }
 
 void	w_nominus_print_f(t_params *m, char *res, int *len)

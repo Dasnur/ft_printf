@@ -62,37 +62,36 @@ char	*sdvig(char *res, int k)
 		k--;
 	}
 	resn[i] = '\0';
+	free(res);
 	return (resn);
 }
 
 char	*long_arif(char *a, char *b, char sign)
 {
 	t_params	m;
-	char		*res;
 
 	m.j = 0;
-	res = ft_strdup(a);
 	m.i = 248;
 	if (sign == '+')
 	{
 		while (m.i >= 0)
 		{
-			res[m.i] = (a[m.i] - 48) + (b[m.i] - 48) + 48;
+			a[m.i] = (a[m.i] - 48) + (b[m.i] - 48) + 48;
 			if (m.j != 0)
 			{
-				res[m.i] = res[m.i] + 1;
+				a[m.i] = a[m.i] + 1;
 				m.j = 0;
 			}
-			if (res[m.i] > 57)
+			if (a[m.i] > 57)
 			{
-				res[m.i] = res[m.i] - 10;
+				a[m.i] = a[m.i] - 10;
 				m.j = 1;
 			}
 			m.i--;
 		}
 	}
 	//free(b);
-	return (res);
+	return (a);
 }
 
 char	*get_good_line_of_pre(char *res, t_params *m)
@@ -101,10 +100,8 @@ char	*get_good_line_of_pre(char *res, t_params *m)
 	int		len;
 	int		i;
 
-	i = 0;
 	len = 0;
-	resnew = (char *)malloc(sizeof(char) * 144);
-	resnew[145] = '\0';
+	resnew = (char *)malloc(sizeof(char) * 146);
 	if (m->type == 9 || m->type == 91 || m->type == 911)
 	{
 		resnew[len] = '.';
@@ -116,11 +113,14 @@ char	*get_good_line_of_pre(char *res, t_params *m)
 	{
 		if (res[i] == '0' || res[i] == '\0')
 			resnew[len] = '0';
-		resnew[len] = res[i];
+		else
+			resnew[len] = res[i];
 		len++;
-		i++;
+		if (res[i] != '\0')
+			i++;
 	}
 	free(res);
+	resnew[len] = '\0';
 	return (resnew);
 }
 
@@ -140,8 +140,8 @@ char	*get_allres(char **res11, t_params *m)
 	while (i < ft_strlen(m->manta))
 	{
 		if (m->manta[i] == '1')
-			allres = long_arif(res11[i], allres, '+');
+			allres = long_arif(allres, res11[i], '+');
 		i++;
 	}
-	return (allres = get_good_line_of_pre(allres, m));
+	return (get_good_line_of_pre(allres, m));
 }

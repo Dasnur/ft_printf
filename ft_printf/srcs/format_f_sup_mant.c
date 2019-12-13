@@ -12,7 +12,7 @@
 
 #include "../includes/libftprintf.h"
 
-char	*mant_to_byte(long long int mant)
+int		mant_to_byte(long long int mant)
 {
 	int		i;
 	char	*res;
@@ -26,7 +26,9 @@ char	*mant_to_byte(long long int mant)
 		i++;
 	}
 	res[i] = '\0';
-	return (res);
+	i = ft_strlen(res);
+	free(res);
+	return (i);
 }
 
 char	*get_only_mant(char *res, long long int in, int flag)
@@ -43,7 +45,7 @@ char	*get_only_mant(char *res, long long int in, int flag)
 		mant[53] = '\0';
 	}
 	else
-		k = 52 - ft_strlen(mant_to_byte(in));
+		k = 52 - (mant_to_byte(in));
 	i = 0;
 	if (res[57] == '0' && flag == 0 && in == 0 && res[58] == '0')
 		k = 51;
@@ -54,6 +56,7 @@ char	*get_only_mant(char *res, long long int in, int flag)
 	while (k >= 0)
 		mant[i++] = res[k--];
 	mant[i] = '\0';
+	free(res);
 	return (mant);
 }
 

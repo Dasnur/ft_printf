@@ -14,7 +14,8 @@
 
 char	*stepen_of_5(char *res11, char *preres)
 {
-	res11 = long_arif(preres, preres, '+');
+	res11 = ft_strdup(preres);
+	res11 = long_arif(res11, preres, '+');
 	res11 = long_arif(res11, preres, '+');
 	res11 = long_arif(res11, preres, '+');
 	res11 = long_arif(res11, preres, '+');
@@ -34,8 +35,7 @@ char	**map_of_stepen(void)
 	// 		res11[y] = (char *)malloc(sizeof(char) * 400);
 	// 	y++;
 	// }
-	res11[y] = 0;
-	y = 0;
+	res11[119] = 0;
 	while (y < 119)
 	{
 		if (y == 0)
@@ -96,15 +96,12 @@ int		predel_f1(t_params *m)
 	return (0);
 }
 
-void	free_map(char **res11)
+void	free_map(char **res11, int index)
 {
-	int	y;
-
-	y = 0;
-	while (res11[y] != 0)
+	while (index >= 0)
 	{
-		free(res11[y]);
-		y++;
+		free(res11[index]);
+		index--;
 	}
 }
 
@@ -134,8 +131,9 @@ void	format_f(char *line, int i, va_list a, int type)
 	vibor_mantiss(doubl1, &m);
 	res11 = map_of_stepen();
 	print_format_f(&m, get_allres(res11, &m));
-	 //free(m.manta);
-	 free_map(res11);
-	// free(res11);
-	 //free(m.res);
+	free_map(res11, 119);
+	free(res11);
+	if (m.manta)
+		free(m.manta);
+	free(m.res);
 }

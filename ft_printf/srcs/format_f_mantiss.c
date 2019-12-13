@@ -41,6 +41,9 @@ void	first_manta_for_null(char *manta1, char *manta, t_params *m, int flag)
 
 int		kratnie5_manta_for_null(char *manta, t_params *m)
 {
+	while (manta[m->i])
+		m->i++;
+	m->i--;
 	while (m->i >= 0)
 	{
 		if (manta[m->i] == '1')
@@ -53,9 +56,9 @@ int		kratnie5_manta_for_null(char *manta, t_params *m)
 	m->i = 0;
 	if (m->type < 12)
 	{
-		while (m->i <= m->type)
+		while (m->i <= m->type && manta[m->i] != '\0')
 			m->res[m->i++] = manta[m->i];
-		if (m->res[m->i - 1] == '1' &&
+		if (m->i > 2 && m->res[m->i - 1] == '1' &&
 				m->res[m->i - 2] == '0' && m->res[m->i - 3] == '0')
 		{
 			m->res[m->i - 2] = '1';
@@ -92,9 +95,13 @@ char	*manta_for_null(char *manta, char *manta1, int flag)
 	m.type = 14;
 	m.ff = 0;
 	m.res = (char *)malloc(sizeof(char) * 150);
-	m.i = 55;
+	m.i = 0;
 	if (kratnie5_manta_for_null(manta, &m))
+	{
+		free(manta);
+//		free(manta1);
 		return (m.res);
+	}
 	second_manta_for_null(manta1, flag, &m);
 	first_manta_for_null(manta1, manta, &m, flag);
 	free(manta);
