@@ -90,26 +90,26 @@ void	second_manta_for_null(char *manta1, int flag, t_params *m)
 
 char	*manta_for_null(char *manta, char *manta1, int flag)
 {
-	t_params	m;
+	t_params	s;
 
-	m.type = 14;
-	m.ff = 0;
-	m.res = (char *)malloc(sizeof(char) * 150);
-	m.i = 0;
-	if (kratnie5_manta_for_null(manta, &m))
+	s.type = 14;
+	s.ff = 0;
+	s.res = (char *)malloc(sizeof(char) * 150);
+	s.i = 0;
+	if (kratnie5_manta_for_null(manta, &s))
 	{
-		free(manta);
-//		free(manta1);
-		return (m.res);
+		if (manta)
+			free(manta);
+		return (s.res);
 	}
-	second_manta_for_null(manta1, flag, &m);
-	first_manta_for_null(manta1, manta, &m, flag);
-	free(manta);
-	free(manta1);
-	if (m.type == 52)
+	second_manta_for_null(manta1, flag, &s);
+	first_manta_for_null(manta1, manta, &s, flag);
+	if (manta)
+		free(manta);
+	if (s.type == 52)
 		return ("11111111111111111111111111111111111111111111111111111");
 	else
-		return (m.res);
+		return (s.res);
 }
 
 void	vibor_mantiss(long double doubl1, t_params *m)

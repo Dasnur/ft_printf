@@ -34,7 +34,7 @@ typedef struct				s_params
 	short unsigned int		unsigned_short_in;
 	char					cha;
 	char*					cha2;
-	char*					res;
+	char					*res;
 	char					*manta;
 	void*					poin;
 	float					flo;
@@ -152,7 +152,7 @@ int    						kratnie5_manta_for_null(char *manta, t_params *m);
 void    					first_manta_for_null(char *manta1, char *manta, t_params *m, int flag);
 int     					number_counting_in(int in);
 int     					poryadok(int len);
-char    					*get_left_space_for_la(char *res);
+char    					*get_left_space_for_la(char *res, t_params *m);
 char    					*sdvig(char *res, int k);
 char    					*long_arif(char *a, char *b, char sign);
 char    					*get_good_line_of_pre(char *res, t_params *m);

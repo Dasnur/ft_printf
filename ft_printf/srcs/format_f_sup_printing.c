@@ -43,21 +43,21 @@ int		poryadok(int len)
 char	*ft_itoa_dr(int a)
 {
 	int		i;
-	char	*res;
+	char	*ress;
 	int		len;
 
 	i = 0;
-	res = (char *)malloc(sizeof(char) * number_counting_in(a) + 1);
+	ress = (char *)malloc(sizeof(char) * number_counting_in(a) + 1);
 	len = number_counting_in(a);
 	while (len != 0)
 	{
-		res[i] = a / poryadok(len) + 48;
+		ress[i] = a / poryadok(len) + 48;
 		i++;
 		a = a % poryadok(len);
 		len--;
 	}
-	res[i] = '\0';
-	return (res);
+	ress[i] = '\0';
+	return (ress);
 }
 
 void	perenos_okruglenie(char *res, t_params *m, int *k)

@@ -22,26 +22,20 @@ char	*stepen_of_5(char *res11, char *preres)
 	return (res11);
 }
 
-char	**map_of_stepen(void)
+char	**map_of_stepen(t_params *m)
 {
 	int		y;
 	char	**res11;
 
 	y = 0;
 	res11 = (char **)malloc(sizeof(char *) * 120);
-	// while (y < 119)
-	// {
-	// 	if (y != 0)
-	// 		res11[y] = (char *)malloc(sizeof(char) * 400);
-	// 	y++;
-	// }
 	res11[119] = 0;
 	while (y < 119)
 	{
 		if (y == 0)
 		{
 			res11[y] = ft_itoa_dr(5);
-			res11[y] = get_left_space_for_la(res11[y]);
+			res11[y] = get_left_space_for_la(res11[y], m);
 		}
 		else if (y != 0)
 			res11[y] = stepen_of_5(res11[y], res11[y - 1]);
@@ -129,11 +123,12 @@ void	format_f(char *line, int i, va_list a, int type)
 		doubl1 = doubl1 - 1;
 	m.res = get_only_mant(bit_fourth(doubl1, 1), 1, 1);
 	vibor_mantiss(doubl1, &m);
-	res11 = map_of_stepen();
+	if (m.res)
+		free(m.res);
+	res11 = map_of_stepen(&m);
 	print_format_f(&m, get_allres(res11, &m));
 	free_map(res11, 119);
 	free(res11);
-	if (m.manta)
+	if (m.manta && m.manta[0] && ft_strcmp(m.manta, "11111111111111111111111111111111111111111111111111111") != 0)
 		free(m.manta);
-	free(m.res);
 }

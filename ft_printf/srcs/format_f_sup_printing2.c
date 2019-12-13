@@ -12,7 +12,7 @@
 
 #include "../includes/libftprintf.h"
 
-char	*get_left_space_for_la(char *res)
+char	*get_left_space_for_la(char *result, t_params *m)
 {
 	char	*nres;
 	int		i;
@@ -20,13 +20,13 @@ char	*get_left_space_for_la(char *res)
 	int		k;
 
 	k = 0;
-	len = ft_strlen(res);
+	len = ft_strlen(result);
 	i = 249;
 	nres = (char *)malloc(sizeof(char) * 400);
 	nres[250] = '\0';
 	while (len >= 0)
 	{
-		nres[i] = res[len];
+		nres[i] = result[len];
 		i--;
 		len--;
 	}
@@ -35,7 +35,7 @@ char	*get_left_space_for_la(char *res)
 		nres[i] = '0';
 		i--;
 	}
-	free(res);
+	free(result);
 	return (nres);
 }
 
@@ -90,7 +90,6 @@ char	*long_arif(char *a, char *b, char sign)
 			m.i--;
 		}
 	}
-	//free(b);
 	return (a);
 }
 
@@ -103,10 +102,7 @@ char	*get_good_line_of_pre(char *res, t_params *m)
 	len = 0;
 	resnew = (char *)malloc(sizeof(char) * 146);
 	if (m->type == 9 || m->type == 91 || m->type == 911)
-	{
-		resnew[len] = '.';
-		len++;
-	}
+		resnew[len++] = '.';
 	goodline_e(m, resnew, &len);
 	i = 128;
 	while (len < 145)
@@ -129,7 +125,7 @@ char	*get_allres(char **res11, t_params *m)
 	int		i;
 	char	*allres;
 
-	allres = get_left_space_for_la(ft_itoa_dr(0));
+	allres = get_left_space_for_la(ft_itoa_dr(0), m);
 	i = 0;
 	while (i < 119)
 	{
