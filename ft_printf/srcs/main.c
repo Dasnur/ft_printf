@@ -122,35 +122,51 @@ void	ft_printf(char *line, ...)
 	va_end(a);
 }
 
-int main()
-{
-	static unsigned short		ush_pos_1 = 3047;
-	static unsigned int		ui_pos_1 = 878023;
-	static unsigned long		ul_pos_1 = 22337203685477;
-	static unsigned long long	ull_pos_1 = 22337203685477;
-	static long long	ll_pos_1 = 22337203685477, ll_neg_1 = -22337203685477;
-	static short		sh_pos_1 = 3047, sh_neg_1 = -8875;
-	static long		l_pos_1 = 22337203685477, l_neg_1 = -22337203685477;
-	ft_printf("%s{green}\n------------------\n", "TEST_MIX_0001");
-	ft_printf("%s%hihello%-17.14llu%lli%08hu%s%17ssomestuff%s%hi%i%.24lu%llu%u%.2s%li\n","abc",sh_neg_1,
-		ull_pos_1,ll_neg_1,ush_pos_1,"wassup","nope","",(short)32767,0,ul_pos_1,0ull,ui_pos_1,"notall",l_pos_1);
-	printf("%s%hihello%-17.14llu%lli%08hu%s%17ssomestuff%s%hi%i%.24lu%llu%u%.2s%li\n","abc",sh_neg_1,
-		ull_pos_1,ll_neg_1,ush_pos_1,"wassup","nope","",(short)32767,0,ul_pos_1,0ull,ui_pos_1,"notall",l_pos_1);
-	ft_printf("\n%s{green}\n------------------\n", "TEST WITH COLOUR");
-	ft_printf("%s{red}\n", "Hello");
-	ft_printf("%s{cyan}\n", "Hello");
-	ft_printf("%s{green}\n", "Hello");
-	ft_printf("%s{yellow}\n", "Hello");
-	ft_printf("%s{blue}\n", "Hello");
-	ft_printf("%s{magenta}\n", "Hello");
-	ft_printf("\n%s{green}\n------------------\n", "TEST WITH *");
-	ft_printf("%*.*s\n", 9, 3, "Hello");
-	ft_printf("\n%s{green}\n------------------\n", "TEST WITH e/E");
-	ft_printf("%.e\n", 1123451324.12);
-	ft_printf("%.e\n", 91.2345132412);
-	ft_printf("%.E\n", 91.2345132412);
-	ft_printf("\n%s{green}\n------------------\n", "TEST WITH D");
-	ft_printf("%D\n", 7234);
-	ft_printf("\n%s{green}\n------------------\n", "TEST WITH nan");
-	ft_printf("%f\n", 0.0);
-}
+// int main()
+// {
+// 	static unsigned short		ush_pos_1 = 3047;
+// 	static unsigned int		ui_pos_1 = 878023;
+// 	static unsigned long		ul_pos_1 = 22337203685477;
+// 	static unsigned long long	ull_pos_1 = 22337203685477;
+// 	static long long	ll_pos_1 = 22337203685477, ll_neg_1 = -22337203685477;
+// 	static short		sh_pos_1 = 3047, sh_neg_1 = -8875;
+// 	static long		l_pos_1 = 22337203685477, l_neg_1 = -22337203685477;
+// 	ft_printf("%hi\n", sh_neg_1);
+// 	ft_printf("%-17.14llu\n", ull_pos_1);
+// 	ft_printf("%lli\n", ll_neg_1);
+// 	ft_printf("%08hu\n", ush_pos_1);
+// 	ft_printf("%hi\n", (short)32767);
+// 	ft_printf("%i\n", 0);
+// 	ft_printf("%.24lu\n", ul_pos_1);
+// 	ft_printf("%llu\n", 0ull);
+// 	ft_printf("%u\n", ui_pos_1);
+// 	ft_printf("\n%s{green}\n------------------\n", "TEST WITH COLOUR");
+// 	ft_printf("%s{red}\n", "Hello");
+// 	ft_printf("%s{cyan}\n", "Hello");
+// 	ft_printf("%s{green}\n", "Hello");
+// 	ft_printf("%s{yellow}\n", "Hello");
+// 	ft_printf("%s{blue}\n", "Hello");
+// 	ft_printf("%s{magenta}\n", "Hello");
+// 	ft_printf("\n%s{green}\n------------------\n", "TEST WITH *");
+// 	ft_printf("%*.*s\n", 9, 3, "Hello");
+// 	ft_printf("\n%s{green}\n------------------\n", "TEST WITH e/E");
+// 	ft_printf("%.e\n", 1123451324.12);
+// 	ft_printf("%.e\n", 91.2345132412);
+// 	ft_printf("%.E\n", 91.2345132412);
+// 	ft_printf("\n%s{green}\n------------------\n", "TEST WITH D");
+// 	ft_printf("%D\n", 7234);
+// 	ft_printf("\n%s{green}\n------------------\n", "TEST WITH S");
+// 	ft_printf("|%-10.5s", "He\0dre");
+// 	printf("%-10.5s|\n", "He\0dre");
+// 	ft_printf("\n%s{green}\n------------------\n", "TEST WITH F");
+// 	ft_printf("%.20f\n", 0.00000000010);
+// 	printf("%.20f\n", 0.00000000010);
+// 	ft_printf("%.50f\n", 0.8);
+// 	printf("%.50f\n", 0.8);
+// 	ft_printf("%#.0f\n", 15.421);
+// 	printf("%#.0f\n", 15.421);
+// 	ft_printf("%12.12f\n", 1235.12345);
+// 	printf("%12.12f\n", 1235.12345);
+// 	ft_printf("%.70f\n", 0.345);
+// 	printf("%.70f\n", 0.345);
+// }

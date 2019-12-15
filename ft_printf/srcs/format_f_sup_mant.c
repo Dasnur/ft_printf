@@ -17,7 +17,7 @@ int		mant_to_byte(long long int mant)
 	int		i;
 	char	*res;
 
-	res = (char *)malloc(sizeof(char) * 25);
+	res = (char *)malloc(sizeof(char) * 40);
 	i = 0;
 	while (mant != 0)
 	{

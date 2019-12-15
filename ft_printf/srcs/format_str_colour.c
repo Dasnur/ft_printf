@@ -14,6 +14,7 @@
 
 void	get_colour_line(char *rescolour, char *begin, char *end, char *mid)
 {
+	rescolour[0] = '\0';
 	rescolour = ft_strcat(rescolour, begin);
 	rescolour = ft_strcat(rescolour, mid);
 	rescolour = ft_strcat(rescolour, end);

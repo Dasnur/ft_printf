@@ -99,6 +99,16 @@ void	free_map(char **res11, int index)
 	}
 }
 
+long double	zero_part(t_params *m, long double doubl1)
+{
+	doubl1 = m->doubl;
+	if (m->long_long_in == 0 && m->doubl > 0)
+		return (doubl1 + 1);
+	if (m->long_long_in == 0 && m->doubl < 0)
+		return (doubl1 - 1);
+	return (doubl1);
+}
+
 void	format_f(char *line, int i, va_list a, int type)
 {
 	t_params		m;
@@ -116,11 +126,7 @@ void	format_f(char *line, int i, va_list a, int type)
 	m.long_long_in = m.doubl;
 	if (predel_f1(&m))
 		return ;
-	doubl1 = m.doubl;
-	if (m.long_long_in == 0 && m.doubl > 0)
-		doubl1 = doubl1 + 1;
-	if (m.long_long_in == 0 && m.doubl < 0)
-		doubl1 = doubl1 - 1;
+	doubl1 = zero_part(&m, doubl1);
 	m.res = get_only_mant(bit_fourth(doubl1, 1), 1, 1);
 	vibor_mantiss(doubl1, &m);
 	if (m.res)
@@ -129,6 +135,7 @@ void	format_f(char *line, int i, va_list a, int type)
 	print_format_f(&m, get_allres(res11, &m));
 	free_map(res11, 119);
 	free(res11);
-	if (m.manta && m.manta[0] && ft_strcmp(m.manta, "11111111111111111111111111111111111111111111111111111") != 0)
+	if (m.manta && m.manta[0] && ft_strcmp(m.manta,
+	"11111111111111111111111111111111111111111111111111111") != 0)
 		free(m.manta);
 }

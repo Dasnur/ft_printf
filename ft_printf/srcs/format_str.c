@@ -18,7 +18,7 @@ void	ft_putstr_with_colour(char *res, t_params *m)
 
 	if (m->f_check_space && !m->f_check_minus && !m->f_check_plus)
 		ft_putchar(' ');
-	rescolour = (char *)malloc(sizeof(char) * 25);
+	rescolour = (char *)malloc(sizeof(char) * 150);
 	if (m->ff == 1)
 		get_colour_line(rescolour, "\e[0;31m", "\e[0m", res);
 	if (m->ff == 2)

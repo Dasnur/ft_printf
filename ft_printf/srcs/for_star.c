@@ -64,7 +64,6 @@ void	take_all_params_2(char *line, int i, t_params *m, va_list a)
 	m->f_check_plus = ft_check_plus(line, i);
 	m->f_check_zero = ft_check_zero(line, i);
 	m->f_check_space = ft_check_space(line, i);
-	m->f_check_width = ALWAYS_POZITIVE(m->f_check_width);
 	m->f_check_long_int = ft_check_long_int(line, i);
 	m->f_check_short_int = ft_check_short_int(line, i);
 	m->f_check_point = ft_check_point(line, i);
